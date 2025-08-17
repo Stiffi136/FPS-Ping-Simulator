@@ -19,7 +19,15 @@ function App() {
       <h1>FPS Ping Simulator</h1>
       <div>
         <label htmlFor="ping-slider">Ping: </label>
-        <span>{simulator.getPing()} ms</span>
+        <input
+          type="number"
+          min={0}
+          max={300}
+          value={simulator.getPing()}
+          onChange={e => setSimulator(new Simulator(handleHit, parseInt(e.target.value)))}
+          style={{ width: "60px", marginRight: "8px" }}
+        />
+        <span>ms</span>
         <br />
         <input
           id="ping-slider"
@@ -27,8 +35,9 @@ function App() {
           min={0}
           max={300}
           step={1}
-          defaultValue={simulator.getPing()}
+          value={simulator.getPing()}
           onChange={e => setSimulator(new Simulator(handleHit, parseInt(e.target.value)))}
+          style={{ width: "300px" }}
         />
       </div>
       <div className="card">
