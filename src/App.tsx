@@ -27,7 +27,7 @@ function App() {
           onChange={e => setSimulator(new Simulator(handleHit, parseInt(e.target.value)))}
           style={{ width: "60px", marginRight: "8px" }}
         />
-        <span>ms</span>
+        <span>ms (RTT)</span>
         <br />
         <input
           id="ping-slider"

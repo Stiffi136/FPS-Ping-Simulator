@@ -19,13 +19,13 @@ export class Simulator {
     async Shoot(): Promise<void> {
         const clientPackage = await this.client.Shoot();
 
-        await new Promise(resolve => setTimeout(resolve, this.ping));
+        await new Promise(resolve => setTimeout(resolve, this.ping * 0.5));
 
         const serverPackage = this.server.ReceivePackage(clientPackage);
 
         if (!serverPackage) return;
 
-        await new Promise(resolve => setTimeout(resolve, this.ping));
+        await new Promise(resolve => setTimeout(resolve, this.ping * 0.5));
 
         this.client.ReceivePackage(serverPackage);
     }
